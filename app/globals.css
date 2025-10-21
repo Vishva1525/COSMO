@@ -1,0 +1,170 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background-color: #FAF9F7; /* cosmo-cream background */
+  color: #6d6e71; /* Updated to match reference gray */
+}
+
+.font-heading {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+}
+
+.font-body {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+}
+
+/* Enhanced animation utilities */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes parallaxUp {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.4s ease-out forwards;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.4s ease-out forwards;
+}
+
+.animate-slide-in-left {
+  animation: slideInLeft 0.4s ease-out forwards;
+}
+
+.animate-parallax-up {
+  animation: parallaxUp 0.3s ease-out forwards;
+}
+
+/* Staggered animations with refined timing */
+.animate-delay-100 { animation-delay: 100ms; }
+.animate-delay-200 { animation-delay: 200ms; }
+.animate-delay-300 { animation-delay: 300ms; }
+.animate-delay-400 { animation-delay: 400ms; }
+.animate-delay-500 { animation-delay: 500ms; }
+.animate-delay-600 { animation-delay: 600ms; }
+.animate-delay-700 { animation-delay: 700ms; }
+.animate-delay-800 { animation-delay: 800ms; }
+
+/* Hover tilt effect for image cards */
+.hover-tilt {
+  transition: transform 0.3s ease-out;
+}
+
+.hover-tilt:hover {
+  transform: rotateY(3deg) scale(1.02);
+}
+
+/* Enhanced gradient overlays */
+.gradient-overlay {
+  background: linear-gradient(to bottom, rgba(0,0,0,0.6), transparent);
+}
+
+.gradient-overlay-hero {
+  background: linear-gradient(to bottom, rgba(0,0,0,0.7), rgba(0,0,0,0.3), transparent);
+}
+
+/* Pattern Background Classes */
+.pattern-bg {
+  background-image: url('/assets/bg.png');
+  background-size: 80px 80px;
+  background-repeat: repeat;
+  background-position: 0 0;
+  opacity: 0.08;
+}
+
+.pattern-bg-subtle {
+  background-image: url('/assets/bg.png');
+  background-size: 60px 60px;
+  background-repeat: repeat;
+  background-position: 0 0;
+  opacity: 0.25;
+}
+
+.pattern-bg-strong {
+  background-image: url('/assets/bg.png');
+  background-size: 100px 100px;
+  background-repeat: repeat;
+  background-position: 0 0;
+  opacity: 0.12;
+}
+
+/* Animated pattern background */
+.pattern-bg-animated {
+  background-image: url('/assets/bg.png');
+  background-size: 80px 80px;
+  background-repeat: repeat;
+  background-position: 0 0;
+  opacity: 0.08;
+  animation: patternMove 20s linear infinite;
+}
+
+@keyframes patternMove {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 80px 80px;
+  }
+}
+
+/* Gradient overlay for pattern backgrounds */
+.pattern-overlay {
+  position: relative;
+}
+
+.pattern-overlay::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, rgba(255,255,255,0.1) 0%, transparent 50%, rgba(255,255,255,0.05) 100%);
+  pointer-events: none;
+  z-index: 1;
+}
