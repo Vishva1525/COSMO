@@ -33,13 +33,21 @@ export default function MarbleSubcategoryPage({ params }: MarbleSubcategoryPageP
   const actualFolderName = folderMap[params.subcategory] || params.subcategory
   const baseDir = path.join(process.cwd(), "public", "assets", "marble", actualFolderName)
   
-  // Check if directory exists
+  // Check if directory exists, if not try the slug as-is
+  let finalBaseDir = baseDir
   if (!fs.existsSync(baseDir)) {
-    notFound()
+    const fallbackDir = path.join(process.cwd(), "public", "assets", "marble", params.subcategory)
+    if (fs.existsSync(fallbackDir)) {
+      finalBaseDir = fallbackDir
+    } else {
+      notFound()
+    }
+  } else {
+    finalBaseDir = baseDir
   }
 
   // Get all image files
-  const files = fs.readdirSync(baseDir)
+  const files = fs.readdirSync(finalBaseDir)
   const imageFiles = files.filter((f) => 
     /\.(jpg|jpeg|png|webp)$/i.test(f) && f.toLowerCase() !== "cover.jpg"
   )
