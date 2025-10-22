@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useMemo } from 'react'
 import { motion, useInView } from 'framer-motion'
 import { useRef } from 'react'
 
@@ -9,7 +9,7 @@ export default function ExpertiseSection() {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, threshold: 0.3 })
 
-  const expertiseData = [
+  const expertiseData = useMemo(() => [
     {
       number: 33,
       suffix: '+',
@@ -20,7 +20,7 @@ export default function ExpertiseSection() {
       number: 16000,
       suffix: ' sq.m',
       label: 'Gallery Size',
-      description: 'India\'s largest luxury stone showcase'
+      description: 'India&apos;s largest luxury stone showcase'
     },
     {
       number: 5000,
@@ -28,7 +28,7 @@ export default function ExpertiseSection() {
       label: 'Client Projects',
       description: 'Transforming spaces across India'
     }
-  ]
+  ], [])
 
   useEffect(() => {
     if (isInView) {
