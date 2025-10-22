@@ -52,7 +52,7 @@ export default function ExpertiseSection() {
         }, stepDuration)
       })
     }
-  }, [isInView])
+  }, [isInView, expertiseData])
 
   return (
     <section className="py-24 bg-gradient-to-b from-cosmo-cream to-white relative overflow-hidden">
@@ -136,7 +136,7 @@ export default function ExpertiseSection() {
           className="text-center mt-16"
         >
           <blockquote className="text-2xl md:text-3xl font-heading text-dark italic leading-relaxed max-w-4xl mx-auto">
-            "Excellence is not a destination, it's a journey of continuous refinement and passion for perfection."
+            &ldquo;Excellence is not a destination, it&apos;s a journey of continuous refinement and passion for perfection.&rdquo;
           </blockquote>
           <cite className="block mt-4 text-lg text-cosmo-gray font-body">
             — Cosmo Granites Legacy

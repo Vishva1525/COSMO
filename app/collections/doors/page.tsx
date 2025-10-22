@@ -71,10 +71,11 @@ export default function DoorsCollection() {
                 >
                   {/* Background Image */}
                   <div className="relative w-full h-full">
-                    <img
+                    <Image
                       src={brand.coverImage}
                       alt={`${brand.name} showcase`}
-                      className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-1000 ease-out"
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-1000 ease-out"
                     />
                     
                     {/* Enhanced Gradient Overlay */}

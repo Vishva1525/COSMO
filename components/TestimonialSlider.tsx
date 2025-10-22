@@ -87,7 +87,7 @@ export default function TestimonialSlider() {
             Client Stories
           </h2>
           <p className="text-lg text-cosmo-gray font-body max-w-3xl mx-auto leading-relaxed">
-            Hear from architects, designers, and homeowners who have transformed their spaces with Cosmo's premium materials.
+            Hear from architects, designers, and homeowners who have transformed their spaces with Cosmo&apos;s premium materials.
           </p>
         </motion.div>
 
@@ -121,7 +121,7 @@ export default function TestimonialSlider() {
 
                 {/* Testimonial Content */}
                 <blockquote className="text-xl md:text-2xl font-heading text-dark leading-relaxed mb-8 italic">
-                  "{currentTestimonial.content}"
+                  &ldquo;{currentTestimonial.content}&rdquo;
                 </blockquote>
 
                 {/* Client Info */}
