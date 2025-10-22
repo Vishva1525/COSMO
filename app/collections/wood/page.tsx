@@ -11,7 +11,8 @@ export default function WoodCollection() {
   const imageMap: { [key: string]: string } = {
     'laminated-wood': 'laminated wood',
     'engineered-wood': 'engineered wood',
-    'solid-hardwood': 'solid hard wood'
+    'solid-hardwood': 'solid hard wood',
+    'decking': 'decking'
   };
 
   return (

@@ -12,7 +12,7 @@ export default function CatalogueGrid() {
       id: 'marble',
       title: 'Marble Collection',
       subtitle: 'Beiges. Greys. Whites. Blacks. Onyx.',
-      image: '/assets/collections/marble.jpg',
+      image: '/assets/collections/marble.png',
       href: '/collections/marble'
     },
     {
