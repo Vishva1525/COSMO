@@ -2,7 +2,6 @@
 
 import Link from 'next/link'
 import Image from 'next/image'
-import PlaceholderImage from '@/components/PlaceholderImage'
 import { motion } from 'framer-motion'
 
 export default function CatalogueGrid() {
@@ -63,9 +62,6 @@ export default function CatalogueGrid() {
         {/* Collections Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {collections.map((collection, index) => {
-            // Check if collection image exists
-            const imageExists = true; // Real images are now uploaded
-            
             return (
               <motion.div
                 key={collection.id}
@@ -86,21 +82,14 @@ export default function CatalogueGrid() {
                     transition={{ duration: 0.3, ease: "easeOut" }}
                   >
                     {/* Background Image */}
-                    {imageExists ? (
-                      <Image
-                        src={collection.image}
-                        alt={`${collection.title} collection`}
-                        fill
-                        className="object-cover group-hover:scale-105 transition-transform duration-700"
-                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
-                        priority={index < 2}
-                      />
-                    ) : (
-                      <PlaceholderImage 
-                        alt={`${collection.title} collection`}
-                        className="h-full w-full"
-                      />
-                    )}
+                    <Image
+                      src={collection.image}
+                      alt={`${collection.title} collection`}
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-700"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+                      priority={index < 2}
+                    />
                 
                     {/* Ambient Lighting Effect */}
                     <div className="absolute inset-0 bg-gradient-radial from-transparent via-transparent to-white/10 group-hover:to-white/20 transition-all duration-500"></div>
