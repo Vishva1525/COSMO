@@ -7,7 +7,7 @@ import { useRef } from 'react'
 export default function ExpertiseSection() {
   const [counts, setCounts] = useState({ years: 0, gallery: 0, projects: 0 })
   const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, threshold: 0.3 })
+  const isInView = useInView(ref, { once: true })
 
   const expertiseData = useMemo(() => [
     {
