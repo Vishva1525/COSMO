@@ -159,26 +159,6 @@ export default function TestimonialSlider() {
             ))}
           </div>
         </div>
-
-        {/* Bottom CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: "easeOut", delay: 0.3 }}
-          viewport={{ once: true }}
-          className="text-center mt-16"
-        >
-          <p className="text-cosmo-gray font-body mb-6">
-            Ready to create your own success story?
-          </p>
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="px-8 py-3 bg-accent-cosmo-red text-white font-body font-semibold rounded-full hover:bg-red-800 transition-colors duration-300 shadow-lg"
-          >
-            Start Your Project
-          </motion.button>
-        </motion.div>
       </div>
     </section>
   )

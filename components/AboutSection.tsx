@@ -129,21 +129,6 @@ export default function AboutSection() {
             </div>
           </div>
         </div>
-
-        {/* Brand Philosophy CTA */}
-        <div
-          className="text-center mt-16 animate-fade-in-up"
-          style={{ animationDelay: '0.8s' }}
-        >
-              <h3 className="text-2xl font-heading mb-4 text-dark leading-relaxed">
-                &quot;We don&apos;t just sell surfaces — we craft experiences that last generations.&quot;
-              </h3>
-          <button
-            className="px-8 py-3 bg-primary text-white rounded-full font-body font-semibold hover:bg-accent transition-colors duration-300 shadow-lg"
-          >
-            Learn More About Cosmo
-          </button>
-        </div>
       </div>
     </section>
   )
