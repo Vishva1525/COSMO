@@ -74,7 +74,7 @@ export default function ExpertiseSection() {
           </h2>
           <p className="text-lg text-cosmo-gray font-body max-w-3xl mx-auto leading-relaxed">
             Three decades of excellence, innovation, and unwavering commitment to transforming 
-            spaces with the world's finest materials.
+            spaces with the world&apos;s finest materials.
           </p>
         </motion.div>
 
