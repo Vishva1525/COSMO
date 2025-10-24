@@ -24,6 +24,11 @@ export default function SocialProofSection() {
 
   return (
     <section className="relative py-16 bg-gradient-to-b from-transparent to-cosmo-cream">
+      {/* Debug: Temporary visible element */}
+      <div className="text-center py-4 bg-red-500 text-white">
+        SOCIAL PROOF SECTION IS WORKING!
+      </div>
+      
       {/* Social Proof Pills */}
       <div className="relative z-20 flex justify-center flex-wrap gap-6 py-8 px-4">
         {socialProofItems.map((item, index) => (
