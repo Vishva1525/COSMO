@@ -62,32 +62,33 @@ export default function HeroSection() {
       {/* Noise Overlay */}
       <div className="absolute inset-0 bg-[url('/assets/noise.svg')] opacity-10 z-30"></div>
 
+      {/* Social Proof Pills - Perfectly Centered */}
+      <div className="absolute top-1/2 left-0 right-0 z-40 px-4 transform -translate-y-1/2">
+        <div className="flex justify-center flex-wrap gap-3 max-w-7xl mx-auto">
+          {socialProofItems.map((item, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ 
+                duration: 0.6, 
+                ease: "easeOut", 
+                delay: 0.2 + (index * 0.1) 
+              }}
+              whileHover={{ scale: 1.05 }}
+              className="flex items-center gap-2 backdrop-blur-md bg-white/10 text-white border border-white/20 rounded-full px-4 py-2 shadow-md hover:shadow-lg transition-all duration-300"
+            >
+              <item.icon className={`w-4 h-4 flex-shrink-0 ${item.iconColor}`} />
+              <span className="font-medium text-xs whitespace-nowrap">
+                {item.text}
+              </span>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+
       {/* Content with Framer Motion */}
       <div className="relative z-40 flex flex-col items-center justify-center h-full text-center text-white px-4">
-        {/* Social Proof Pills - Just Above Main Heading */}
-        <div className="mb-8">
-          <div className="flex justify-center flex-wrap gap-3">
-            {socialProofItems.map((item, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ 
-                  duration: 0.6, 
-                  ease: "easeOut", 
-                  delay: 0.2 + (index * 0.1) 
-                }}
-                whileHover={{ scale: 1.05 }}
-                className="flex items-center gap-2 backdrop-blur-md bg-white/10 text-white border border-white/20 rounded-full px-4 py-2 shadow-md hover:shadow-lg transition-all duration-300"
-              >
-                <item.icon className={`w-4 h-4 flex-shrink-0 ${item.iconColor}`} />
-                <span className="font-medium text-xs whitespace-nowrap">
-                  {item.text}
-                </span>
-              </motion.div>
-            ))}
-          </div>
-        </div>
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
