@@ -62,8 +62,8 @@ export default function HeroSection() {
       {/* Noise Overlay */}
       <div className="absolute inset-0 bg-[url('/assets/noise.svg')] opacity-10 z-30"></div>
 
-      {/* Social Proof Pills - Top Position */}
-      <div className="absolute top-20 left-0 right-0 z-40 px-4">
+      {/* Social Proof Pills - Centered Position */}
+      <div className="absolute top-32 left-0 right-0 z-40 px-4">
         <div className="flex justify-center flex-wrap gap-3 max-w-7xl mx-auto">
           {socialProofItems.map((item, index) => (
             <motion.div

@@ -17,8 +17,15 @@ export default function AdminLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <link rel="icon" href="/favicon.ico" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+      </head>
       <body className="bg-gray-50">
-        {children}
+        <div className="min-h-screen">
+          {children}
+        </div>
       </body>
     </html>
   )
