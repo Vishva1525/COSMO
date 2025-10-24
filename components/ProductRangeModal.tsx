@@ -172,60 +172,44 @@ function getDoorsProducts(subfolder: string): ProductCard[] {
   }))
 }
 
+// Initialize product data with actual folder structure
 const productData: CategoryData[] = [
   {
     name: 'Marble',
     subcategories: [
-      { name: 'Beiges & Cream', folder: 'beiges and cream', products: [] },
-      { name: 'Greys', folder: 'greys', products: [] },
-      { name: 'Whites', folder: 'whites', products: [] },
-      { name: 'Blacks', folder: 'blacks', products: [] },
-      { name: 'Colors', folder: 'colors', products: [] },
-      { name: 'Onyx', folder: 'onyx', products: [] },
-      { name: 'Travertino', folder: 'travertino', products: [] },
-      { name: 'Indian Marble', folder: 'indian-marble', products: [] }
+      { name: 'Beiges & Cream', folder: 'beiges and cream', products: getMarbleProducts('beiges and cream') },
+      { name: 'Greys', folder: 'greys', products: getMarbleProducts('greys') },
+      { name: 'Whites', folder: 'whites', products: getMarbleProducts('whites') },
+      { name: 'Blacks', folder: 'blacks', products: getMarbleProducts('blacks') },
+      { name: 'Colors', folder: 'colors', products: getMarbleProducts('colors') },
+      { name: 'Onyx', folder: 'onyx', products: getMarbleProducts('onyx') },
+      { name: 'Travertino', folder: 'travertino', products: getMarbleProducts('travertino') },
+      { name: 'Indian Marble', folder: 'indian-marble', products: getMarbleProducts('indian-marble') }
     ]
   },
   {
     name: 'Granite',
     subcategories: [
-      { name: 'Indian Granites', folder: 'indian-granites', products: [] },
-      { name: 'Imported Granites', folder: 'imported-granites', products: [] }
+      { name: 'Indian Granites', folder: 'indian-granites', products: getGraniteProducts('indian-granites') },
+      { name: 'Imported Granites', folder: 'imported-granites', products: getGraniteProducts('imported-granites') }
     ]
   },
   {
     name: 'Wooden Flooring',
     subcategories: [
-      { name: 'Laminated Wood', folder: 'laminated wood', products: [] },
-      { name: 'Engineered Wood', folder: 'engineered wood', products: [] },
-      { name: 'Solid Hardwood', folder: 'solid hard wood', products: [] }
+      { name: 'Laminated Wood', folder: 'laminated wood', products: getWoodProducts('laminated wood') },
+      { name: 'Engineered Wood', folder: 'engineered wood', products: getWoodProducts('engineered wood') },
+      { name: 'Solid Hardwood', folder: 'solid hard wood', products: getWoodProducts('solid hard wood') }
     ]
   },
   {
     name: 'Doors & Windows',
     subcategories: [
-      { name: 'Fletcher Windows', folder: 'fletcher windows', products: [] },
-      { name: 'AluK Systems', folder: 'aluk', products: [] }
+      { name: 'Fletcher Windows', folder: 'fletcher windows', products: getDoorsProducts('fletcher windows') },
+      { name: 'AluK Systems', folder: 'aluk', products: getDoorsProducts('aluk') }
     ]
   }
 ]
-
-// Populate products based on category
-productData[0].subcategories.forEach(sub => {
-  sub.products = getMarbleProducts(sub.folder)
-})
-
-productData[1].subcategories.forEach(sub => {
-  sub.products = getGraniteProducts(sub.folder)
-})
-
-productData[2].subcategories.forEach(sub => {
-  sub.products = getWoodProducts(sub.folder)
-})
-
-productData[3].subcategories.forEach(sub => {
-  sub.products = getDoorsProducts(sub.folder)
-})
 
 interface ProductRangeModalProps {
   isOpen: boolean
