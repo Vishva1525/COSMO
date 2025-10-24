@@ -57,8 +57,8 @@ function Navbar() {
   ]
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 backdrop-blur-lg transition-all duration-300 ${
-      isScrolled ? 'bg-white/90' : 'bg-white/15'
+    <nav className={`fixed top-0 left-0 right-0 z-50 backdrop-blur-md transition-all duration-300 ${
+      isScrolled ? 'bg-white/90' : 'bg-transparent'
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
@@ -184,8 +184,8 @@ function Navbar() {
             isOpen ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0'
           }`}
         >
-          <div className={`px-2 pt-2 pb-3 space-y-1 backdrop-blur-lg rounded-lg mt-2 border border-white/20 ${
-            isScrolled ? 'bg-white/90' : 'bg-white/15'
+          <div className={`px-2 pt-2 pb-3 space-y-1 backdrop-blur-md rounded-lg mt-2 border border-white/20 ${
+            isScrolled ? 'bg-white/90' : 'bg-transparent'
           }`}>
             {navLinks.map((link, index) => (
               <div key={link.name}>

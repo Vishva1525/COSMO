@@ -1,4 +1,5 @@
 import HeroSection from '@/components/HeroSection'
+import SocialProofSection from '@/components/SocialProofSection'
 import CatalogueGrid from '@/components/CatalogueGrid'
 import ExpertiseSection from '@/components/ExpertiseSection'
 import TestimonialSlider from '@/components/TestimonialSlider'
@@ -11,6 +12,7 @@ export default function Home() {
     <PageTransition>
       <div className="min-h-screen">
         <HeroSection />
+        <SocialProofSection />
         <CatalogueGrid />
         <ExpertiseSection />
         <TestimonialSlider />
