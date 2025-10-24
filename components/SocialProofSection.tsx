@@ -24,25 +24,8 @@ export default function SocialProofSection() {
 
   return (
     <section className="relative py-16 bg-gradient-to-b from-transparent to-cosmo-cream">
-      {/* Background Video Continuation */}
-      <div className="absolute inset-0 w-full h-full z-0">
-        <video
-          className="absolute inset-0 w-full h-full object-cover"
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="auto"
-        >
-          <source src="/videos/hero-loop.mp4" type="video/mp4" />
-        </video>
-      </div>
-      
-      {/* Gradient Overlay */}
-      <div className="absolute inset-0 gradient-overlay-hero z-10"></div>
-
       {/* Social Proof Pills */}
-      <div className="relative z-20 flex justify-center flex-wrap gap-6 mt-12 px-4">
+      <div className="relative z-20 flex justify-center flex-wrap gap-6 py-8 px-4">
         {socialProofItems.map((item, index) => (
           <motion.div
             key={index}
@@ -54,7 +37,7 @@ export default function SocialProofSection() {
               delay: 0.1 + (index * 0.1) 
             }}
             whileHover={{ scale: 1.05 }}
-            className="flex items-center gap-2 backdrop-blur-md bg-white/10 text-white border border-white/20 rounded-full px-6 py-3 shadow-md hover:shadow-lg transition-all duration-300"
+            className="flex items-center gap-2 backdrop-blur-md bg-black/20 text-white border border-white/30 rounded-full px-6 py-3 shadow-lg hover:shadow-xl transition-all duration-300"
           >
             <item.icon className={`w-5 h-5 ${item.iconColor}`} />
             <span className="font-medium text-sm md:text-base whitespace-nowrap">
