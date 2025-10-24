@@ -15,5 +15,11 @@ export default function AdminLayout({
 }: {
   children: React.ReactNode
 }) {
-  return children
+  return (
+    <html lang="en" suppressHydrationWarning>
+      <body className="bg-gray-50">
+        {children}
+      </body>
+    </html>
+  )
 }
