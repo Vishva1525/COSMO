@@ -169,7 +169,7 @@ function Footer() {
             </div>
             <button
               onClick={() => setShowAdminLogin(true)}
-              className="flex items-center space-x-1 text-gray-500 hover:text-primary transition-colors duration-200"
+              className="flex items-center space-x-1 text-white hover:text-primary transition-colors duration-200"
             >
               <Shield className="w-4 h-4" />
               <span>Admin</span>
