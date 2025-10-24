@@ -8,114 +8,224 @@ import Image from 'next/image'
 interface ProductCard {
   id: string
   name: string
-  price: string
   image: string
 }
 
 interface Subcategory {
   name: string
+  folder: string
   products: ProductCard[]
 }
 
-interface Category {
+interface CategoryData {
   name: string
   subcategories: Subcategory[]
 }
 
-const productData: Category[] = [
+// Helper function to extract clean names from filenames
+function extractCleanName(filename: string): string {
+  let name = filename
+    .replace(/^freepik__/, '')
+    .replace(/__\d+$/, '')
+    .replace(/[-_]+/g, ' ')
+    .split(' ')
+    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(' ')
+    .trim()
+  
+  return name
+}
+
+// Generate marble products
+function getMarbleProducts(subfolder: string): ProductCard[] {
+  const marbleImages: Record<string, string[]> = {
+    'beiges and cream': [
+      'freepik__atlantic-beige-marble-photoreal-beige-marble-slab-__71148.png',
+      'freepik__bianco-marfill-light-cream-marble-slab-with-faint-__71149.png',
+      'freepik__botticino-classico-fiorito-italian-beige-marble-wi__71161.png',
+      'freepik__brescia-aurora-beige-marble-with-faint-pink-hue-ph__71159.png',
+      'freepik__brescia-diana-classic-beige-marble-with-subtle-hor__71150.png',
+      'freepik__cloudy-beige-soft-cloudy-beige-marble-surface-matt__71162.png',
+      'freepik__crema-miele-honeytoned-beige-marble-elegant-light-__71163.png',
+      'freepik__crema-nova-polished-cream-marble-surface-realistic__71160.png'
+    ],
+    'greys': Array.from({ length: 8 }, (_, i) => `grey-${i + 1}.png`),
+    'whites': Array.from({ length: 7 }, (_, i) => `white-${i + 1}.png`),
+    'blacks': [
+      'freepik__american-gold-portoro-black-marble-with-striking-g__71182.png',
+      'freepik__black-portoro-classic-black-marble-surface-with-go__71183.png',
+      'freepik__brescia-nortre-deep-black-marble-with-faint-white-__71184.png',
+      'freepik__ocean-black-rich-black-marble-slab-with-subtle-wav__71185.png',
+      'freepik__silver-portoro-dark-marble-with-metallic-silver-ve__71186.png'
+    ],
+    'colors': [
+      'freepik__dark-emperador-brown-marble-with-dense-white-veini__88716.png',
+      'freepik__ice-brown-light-brown-marble-matte-finish-with-gen__88717.png',
+      'freepik__red-alicante-deep-red-marble-slab-elegant-interior__88718.png',
+      'freepik__red-lanventhe-vibrant-red-marble-polished-texture-__88719.png',
+      'freepik__rosso-pistalo-rust-red-marble-with-natural-pattern__88720.png',
+      'freepik__yellow-pearl-golden-yellow-marble-slab-warm-daylig__88721.png'
+    ],
+    'onyx': Array.from({ length: 10 }, (_, i) => `onyx-${i + 1}.png`),
+    'travertino': Array.from({ length: 8 }, (_, i) => `travertino-${i + 1}.png`),
+    'indian-marble': [
+      'freepik__indian-classic-white-soft-white-marble-smooth-surf__88715.png',
+      'freepik__jaisalmar-golden-yellow-indian-marble-slab-photore__88714.png',
+      'freepik__udaipur-green-green-marble-slab-with-cloudy-veins-__88713.png'
+    ]
+  }
+
+  const images = marbleImages[subfolder] || []
+  return images.slice(0, 8).map((img, idx) => ({
+    id: `marble-${subfolder}-${idx}`,
+    name: extractCleanName(img),
+    image: `/assets/marble/${subfolder}/${img}`
+  }))
+}
+
+// Generate granite products
+function getGraniteProducts(subfolder: string): ProductCard[] {
+  const graniteImages: Record<string, string[]> = {
+    'indian-granites': [
+      'freepik__polished-coffee-brown-indian-granite-slab-with-ric__6328.png',
+      'freepik__vibrant-coral-red-indian-granite-slab-glossy-finis__6329.png',
+      'freepik__english-teak-granite-slab-with-fine-beige-and-brow__6330.png',
+      'freepik__fox-brown-granite-with-subtle-chocolate-tones-and-__6331.png',
+      'freepik__cool-grey-indian-granite-slab-with-smooth-reflecti__6332.png',
+      'freepik__icon-brown-granite-slab-in-warm-tones-with-mild-sp__6333.png',
+      'freepik__ivory-fantasy-granite-slab-with-creamy-beige-textu__6334.png',
+      'freepik__jet-black-granite-slab-with-mirrorlike-finish-and-__6335.png'
+    ],
+    'imported-granites': [
+      'freepik__antique-brown-imported-granite-slab-with-deep-choc__6351.png',
+      'freepik__blue-pearl-granite-slab-with-metallic-blue-crystal__6352.png',
+      'freepik__emerald-pearl-granite-with-greenblack-reflective-t__6354.png',
+      'freepik__royal-grey-granite-slab-with-balanced-matte-polish__6355.png',
+      'freepik__volga-blue-granite-slab-with-deep-navy-tone-and-lu__6356.png'
+    ]
+  }
+
+  const images = graniteImages[subfolder] || []
+  return images.slice(0, 8).map((img, idx) => ({
+    id: `granite-${subfolder}-${idx}`,
+    name: extractCleanName(img),
+    image: `/assets/granite/${subfolder}/${img}`
+  }))
+}
+
+// Generate wood products
+function getWoodProducts(subfolder: string): ProductCard[] {
+  const woodImages: Record<string, string[]> = {
+    'laminated wood': [
+      'freepik__mandarin-oak-and-walnut-laminate-flooring-realisti__6359.png',
+      'freepik__natural-oak-and-pine-laminate-floor-rustic-warmth-__6360.png',
+      'freepik__beech-and-mandarin-oak-laminated-flooring-smooth-m__6361.png',
+      'freepik__classic-walnut-laminate-floor-deep-brown-tone-with__6362.png',
+      'freepik__laminate-flooring-mix-of-oak-and-cherry-wood-rich-__6363.png',
+      'freepik__light-brushed-oak-laminate-with-bleached-teak-text__6364.png',
+      'freepik__dark-oak-and-smoky-ash-laminate-flooring-with-matt__6365.png',
+      'freepik__laminated-wooden-floor-in-warm-acacia-and-teak-ton__6366.png'
+    ],
+    'engineered wood': [
+      'freepik__engineered-ash-wood-flooring-light-tone-with-fine-__6379.png',
+      'freepik__coppertoned-engineered-oak-floor-rich-color-gradie__6380.png',
+      'freepik__engineered-oak-flooring-in-herringbone-pattern-pol__6381.png',
+      'freepik__engineered-prime-wood-flooring-with-smooth-satin-f__6382.png',
+      'freepik__cappuccinotone-engineered-oak-flooring-polished-te__6383.png',
+      'freepik__engineered-cream-oak-flooring-neutral-color-palett__6384.png',
+      'freepik__engineered-prime-oak-flooring-detailed-wood-grain-__6385.png',
+      'freepik__engineered-sucupira-wood-flooring-rich-reddish-ton__6386.png'
+    ],
+    'solid hard wood': Array.from({ length: 8 }, (_, i) => `solid-${i + 1}.png`)
+  }
+
+  const images = woodImages[subfolder] || []
+  return images.slice(0, 8).map((img, idx) => ({
+    id: `wood-${subfolder}-${idx}`,
+    name: extractCleanName(img),
+    image: `/assets/wood/${subfolder}/${img}`
+  }))
+}
+
+// Generate doors products
+function getDoorsProducts(subfolder: string): ProductCard[] {
+  const doorsImages: Record<string, string[]> = {
+    'fletcher windows': [
+      'freepik__modern-villa-exterior-showcasing-fletcher-aluminum__43202.png',
+      'freepik__macro-closeup-of-aluminum-window-frame-corner-join__43203.png',
+      'freepik__corporate-interior-with-fullheight-aluminum-window__43204.png',
+      'freepik__modern-home-interior-with-fletcher-aluminum-slidin__43205.png'
+    ],
+    'aluk': [
+      'freepik__elegant-loft-interior-with-aluk-glass-sliding-door__43207.png',
+      'freepik__luxury-villa-exterior-featuring-aluk-door-systems-__43208.png',
+      'freepik__professional-studio-render-of-aluk-aluminum-frame-__43209.png',
+      'freepik__urban-apartment-exterior-showing-aluk-windows-glow__43210.png'
+    ]
+  }
+
+  const images = doorsImages[subfolder] || []
+  return images.map((img, idx) => ({
+    id: `doors-${subfolder}-${idx}`,
+    name: extractCleanName(img),
+    image: `/assets/doors/${subfolder}/${img}`
+  }))
+}
+
+const productData: CategoryData[] = [
   {
     name: 'Marble',
     subcategories: [
-      {
-        name: 'Italian Marble',
-        products: [
-          { id: '1', name: 'Carrara White', price: '₹450/sq ft', image: '/assets/marble/whites/carrara-white.jpg' },
-          { id: '2', name: 'Calacatta Gold', price: '₹650/sq ft', image: '/assets/marble/whites/calacatta-gold.jpg' },
-          { id: '3', name: 'Statuario', price: '₹750/sq ft', image: '/assets/marble/whites/statuario.jpg' },
-          { id: '4', name: 'Nero Marquina', price: '₹550/sq ft', image: '/assets/marble/blacks/nero-marquina.jpg' }
-        ]
-      },
-      {
-        name: 'Indian Marble',
-        products: [
-          { id: '5', name: 'Makrana White', price: '₹350/sq ft', image: '/assets/marble/indian-marble/makrana-white.jpg' },
-          { id: '6', name: 'Rajnagar Pink', price: '₹400/sq ft', image: '/assets/marble/indian-marble/rajnagar-pink.jpg' },
-          { id: '7', name: 'Udaipur Green', price: '₹450/sq ft', image: '/assets/marble/indian-marble/udaipur-green.jpg' },
-          { id: '8', name: 'Indian Black', price: '₹500/sq ft', image: '/assets/marble/blacks/indian-black.jpg' }
-        ]
-      }
+      { name: 'Beiges & Cream', folder: 'beiges and cream', products: [] },
+      { name: 'Greys', folder: 'greys', products: [] },
+      { name: 'Whites', folder: 'whites', products: [] },
+      { name: 'Blacks', folder: 'blacks', products: [] },
+      { name: 'Colors', folder: 'colors', products: [] },
+      { name: 'Onyx', folder: 'onyx', products: [] },
+      { name: 'Travertino', folder: 'travertino', products: [] },
+      { name: 'Indian Marble', folder: 'indian-marble', products: [] }
     ]
   },
   {
     name: 'Granite',
     subcategories: [
-      {
-        name: 'Indian Granites',
-        products: [
-          { id: '9', name: 'Black Galaxy', price: '₹300/sq ft', image: '/assets/granite/indian/black-galaxy.jpg' },
-          { id: '10', name: 'Absolute Black', price: '₹350/sq ft', image: '/assets/granite/indian/absolute-black.jpg' },
-          { id: '11', name: 'Tan Brown', price: '₹250/sq ft', image: '/assets/granite/indian/tan-brown.jpg' },
-          { id: '12', name: 'Imperial White', price: '₹400/sq ft', image: '/assets/granite/indian/imperial-white.jpg' }
-        ]
-      },
-      {
-        name: 'Imported Granites',
-        products: [
-          { id: '13', name: 'Brazilian Blue', price: '₹600/sq ft', image: '/assets/granite/imported/brazilian-blue.jpg' },
-          { id: '14', name: 'Norwegian Pearl', price: '₹550/sq ft', image: '/assets/granite/imported/norwegian-pearl.jpg' },
-          { id: '15', name: 'African Red', price: '₹500/sq ft', image: '/assets/granite/imported/african-red.jpg' },
-          { id: '16', name: 'Canadian Maple', price: '₹450/sq ft', image: '/assets/granite/imported/canadian-maple.jpg' }
-        ]
-      }
+      { name: 'Indian Granites', folder: 'indian-granites', products: [] },
+      { name: 'Imported Granites', folder: 'imported-granites', products: [] }
     ]
   },
   {
     name: 'Wooden Flooring',
     subcategories: [
-      {
-        name: 'Engineered Wood',
-        products: [
-          { id: '17', name: 'Oak Engineered', price: '₹200/sq ft', image: '/assets/wood/engineered/oak-engineered.jpg' },
-          { id: '18', name: 'Teak Engineered', price: '₹250/sq ft', image: '/assets/wood/engineered/teak-engineered.jpg' },
-          { id: '19', name: 'Walnut Engineered', price: '₹300/sq ft', image: '/assets/wood/engineered/walnut-engineered.jpg' },
-          { id: '20', name: 'Cherry Engineered', price: '₹280/sq ft', image: '/assets/wood/engineered/cherry-engineered.jpg' }
-        ]
-      },
-      {
-        name: 'Solid Hardwood',
-        products: [
-          { id: '21', name: 'Solid Oak', price: '₹400/sq ft', image: '/assets/wood/solid/solid-oak.jpg' },
-          { id: '22', name: 'Solid Teak', price: '₹500/sq ft', image: '/assets/wood/solid/solid-teak.jpg' },
-          { id: '23', name: 'Solid Walnut', price: '₹600/sq ft', image: '/assets/wood/solid/solid-walnut.jpg' },
-          { id: '24', name: 'Solid Cherry', price: '₹550/sq ft', image: '/assets/wood/solid/solid-cherry.jpg' }
-        ]
-      }
+      { name: 'Laminated Wood', folder: 'laminated wood', products: [] },
+      { name: 'Engineered Wood', folder: 'engineered wood', products: [] },
+      { name: 'Solid Hardwood', folder: 'solid hard wood', products: [] }
     ]
   },
   {
     name: 'Doors & Windows',
     subcategories: [
-      {
-        name: 'Fletcher Windows',
-        products: [
-          { id: '25', name: 'Casement Window', price: '₹800/sq ft', image: '/assets/doors/fletcher-windows/casement.jpg' },
-          { id: '26', name: 'Sliding Window', price: '₹900/sq ft', image: '/assets/doors/fletcher-windows/sliding.jpg' },
-          { id: '27', name: 'Tilt & Turn', price: '₹1200/sq ft', image: '/assets/doors/fletcher-windows/tilt-turn.jpg' },
-          { id: '28', name: 'Fixed Window', price: '₹600/sq ft', image: '/assets/doors/fletcher-windows/fixed.jpg' }
-        ]
-      },
-      {
-        name: 'AluK Systems',
-        products: [
-          { id: '29', name: 'AluK Sliding Door', price: '₹1500/sq ft', image: '/assets/doors/aluk/sliding-door.jpg' },
-          { id: '30', name: 'AluK Folding Door', price: '₹1800/sq ft', image: '/assets/doors/aluk/folding-door.jpg' },
-          { id: '31', name: 'AluK Lift & Slide', price: '₹2000/sq ft', image: '/assets/doors/aluk/lift-slide.jpg' },
-          { id: '32', name: 'AluK French Door', price: '₹1600/sq ft', image: '/assets/doors/aluk/french-door.jpg' }
-        ]
-      }
+      { name: 'Fletcher Windows', folder: 'fletcher windows', products: [] },
+      { name: 'AluK Systems', folder: 'aluk', products: [] }
     ]
   }
 ]
+
+// Populate products based on category
+productData[0].subcategories.forEach(sub => {
+  sub.products = getMarbleProducts(sub.folder)
+})
+
+productData[1].subcategories.forEach(sub => {
+  sub.products = getGraniteProducts(sub.folder)
+})
+
+productData[2].subcategories.forEach(sub => {
+  sub.products = getWoodProducts(sub.folder)
+})
+
+productData[3].subcategories.forEach(sub => {
+  sub.products = getDoorsProducts(sub.folder)
+})
 
 interface ProductRangeModalProps {
   isOpen: boolean
@@ -166,7 +276,7 @@ export default function ProductRangeModal({ isOpen, onClose }: ProductRangeModal
             onClick={(e) => e.stopPropagation()}
           >
             {/* Header */}
-            <div className="flex justify-between items-center border-b pb-4 mb-6">
+            <div className="flex justify-between items-center border-b pb-4 mb-6 sticky top-0 bg-white z-10">
               <h2 className="text-3xl font-heading text-gray-900">Our Complete Product Range</h2>
               <button 
                 onClick={onClose} 
@@ -181,12 +291,12 @@ export default function ProductRangeModal({ isOpen, onClose }: ProductRangeModal
             </p>
 
             {/* Tab Navigation */}
-            <div className="flex justify-center border-b border-gray-200 mb-8">
+            <div className="flex justify-center border-b border-gray-200 mb-8 sticky top-20 bg-white z-10 pb-4">
               {productData.map((category) => (
                 <button
                   key={category.name}
                   onClick={() => setActiveCategory(category.name)}
-                  className={`px-6 py-3 text-lg font-medium transition-colors duration-200 ${
+                  className={`px-4 md:px-6 py-3 text-sm md:text-lg font-medium transition-colors duration-200 ${
                     activeCategory === category.name
                       ? 'border-b-2 border-red-600 text-red-600'
                       : 'text-gray-600 hover:text-red-600'
@@ -208,40 +318,47 @@ export default function ProductRangeModal({ isOpen, onClose }: ProductRangeModal
                 className="space-y-8"
               >
                 {currentCategory?.subcategories.map((subcategory, index) => (
-                  <div key={subcategory.name} className="space-y-4">
-                    <h3 className="text-xl font-heading text-gray-800 border-b border-gray-200 pb-2">
+                  <motion.div 
+                    key={subcategory.name}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.4, delay: index * 0.1 }}
+                    className="space-y-4 bg-gradient-to-b from-gray-50/30 to-white p-6 rounded-xl"
+                  >
+                    <h3 className="text-xl font-heading text-gray-800 border-l-4 border-red-600 pl-3">
                       {subcategory.name}
                     </h3>
-                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-                      {subcategory.products.map((product) => (
+                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
+                      {subcategory.products.map((product, prodIndex) => (
                         <motion.div
                           key={product.id}
-                          whileHover={{ scale: 1.03 }}
-                          transition={{ duration: 0.2, ease: "easeOut" }}
+                          initial={{ opacity: 0, scale: 0.9 }}
+                          animate={{ opacity: 1, scale: 1 }}
+                          transition={{ duration: 0.3, delay: prodIndex * 0.05 }}
+                          whileHover={{ scale: 1.03, y: -4 }}
                           className="rounded-xl bg-gray-50 hover:bg-gray-100 transition-all duration-300 p-3 shadow-sm hover:shadow-lg cursor-pointer"
                         >
-                          <div className="relative h-28 w-full mb-3">
+                          <div className="relative h-28 w-full mb-3 overflow-hidden rounded-lg">
                             <Image
                               src={product.image}
                               alt={product.name}
                               fill
-                              className="rounded-lg object-cover"
+                              sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                              className="object-cover"
+                              loading="lazy"
                               onError={(e) => {
-                                // Fallback to placeholder if image doesn't exist
-                                e.currentTarget.src = '/assets/placeholder-pattern.svg'
+                                const target = e.target as HTMLImageElement
+                                target.src = '/assets/placeholder-pattern.svg'
                               }}
                             />
                           </div>
-                          <h4 className="font-semibold text-gray-800 text-sm mb-1">
+                          <h4 className="font-semibold text-gray-800 text-xs md:text-sm mb-1 truncate" title={product.name}>
                             {product.name}
                           </h4>
-                          <p className="text-xs text-gray-500">
-                            {product.price}
-                          </p>
                         </motion.div>
                       ))}
                     </div>
-                  </div>
+                  </motion.div>
                 ))}
               </motion.div>
             </AnimatePresence>
