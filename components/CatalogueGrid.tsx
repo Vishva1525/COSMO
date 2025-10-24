@@ -4,7 +4,11 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
 
-export default function CatalogueGrid() {
+interface CatalogueGridProps {
+  onViewAllProducts?: () => void
+}
+
+export default function CatalogueGrid({ onViewAllProducts }: CatalogueGridProps) {
 
   const collections = [
     {
@@ -158,15 +162,14 @@ export default function CatalogueGrid() {
           <p className="text-cosmo-gray font-body mb-6">
             Can&apos;t find what you&apos;re looking for? Our experts are here to help.
           </p>
-          <Link href="/#collections">
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="bg-accent-cosmo-red hover:bg-red-800 text-white px-8 py-3 rounded-lg font-body font-semibold transition-colors duration-300 shadow-lg"
-            >
-              View All Products
-            </motion.button>
-          </Link>
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            onClick={onViewAllProducts}
+            className="bg-accent-cosmo-red hover:bg-red-800 text-white px-8 py-3 rounded-lg font-body font-semibold transition-colors duration-300 shadow-lg"
+          >
+            View All Products
+          </motion.button>
         </motion.div>
       </div>
     </section>
