@@ -120,11 +120,14 @@ export default function HeroSection() {
             Book a Visit
           </motion.button>
         </motion.div>
-      </div>
-      
-      {/* Social Proof Pills */}
-      <div className="absolute bottom-20 left-1/2 transform -translate-x-1/2 z-40 w-full px-4">
-        <div className="flex justify-center flex-wrap gap-6">
+        
+        {/* Social Proof Pills */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut", delay: 0.6 }}
+          className="flex justify-center flex-wrap gap-6 mt-12"
+        >
           {socialProofItems.map((item, index) => (
             <motion.div
               key={index}
@@ -133,7 +136,7 @@ export default function HeroSection() {
               transition={{ 
                 duration: 0.6, 
                 ease: "easeOut", 
-                delay: 0.8 + (index * 0.1) 
+                delay: 0.7 + (index * 0.1) 
               }}
               whileHover={{ scale: 1.05 }}
               className="flex items-center gap-2 backdrop-blur-md bg-white/10 text-white border border-white/20 rounded-full px-6 py-3 shadow-md hover:shadow-lg transition-all duration-300"
@@ -144,7 +147,7 @@ export default function HeroSection() {
               </span>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
       
       {/* Scroll Indicator */}
