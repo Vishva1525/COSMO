@@ -371,16 +371,15 @@ export default function ProductRangeModal({ isOpen, onClose }: ProductRangeModal
                           className="rounded-xl bg-gray-50 hover:bg-gray-100 transition-all duration-300 p-3 shadow-sm hover:shadow-lg cursor-pointer"
                         >
                           <div className="relative h-28 w-full mb-3 overflow-hidden rounded-lg">
-                            <Image
+                            <img
                               src={product.image}
                               alt={product.name}
-                              fill
-                              sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
-                              className="object-cover"
+                              className="absolute inset-0 w-full h-full object-cover"
                               loading="lazy"
                               onError={(e) => {
-                                const target = e.target as HTMLImageElement
-                                target.src = '/assets/placeholder-pattern.svg'
+                                console.error(`Failed to load image: ${product.image}`);
+                                const target = e.target as HTMLImageElement;
+                                target.style.display = 'none';
                               }}
                             />
                           </div>
