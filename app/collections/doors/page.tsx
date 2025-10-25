@@ -10,15 +10,15 @@ export default function DoorsCollection() {
     {
       id: "fletcher-windows",
       name: "Fletcher Windows",
-      description: "Precision-engineered aluminum fenestration systems for high-rise façades, villas, and commercial spaces.",
-      coverImage: "/assets/doors/fletcher-windows.png",
+      description: "Fletcher Windows, a global pioneer in aluminum fenestration systems, delivers unmatched strength, insulation, and precision design for both residential and commercial spaces.",
+      coverImage: "/assets/doors/FletcherWindows.png",
       href: "/collections/doors/fletcher-windows"
     },
     {
       id: "aluk",
       name: "AluK Doors & Windows",
-      description: "European minimalism meets Indian craftsmanship. Exceptional energy efficiency and slim-profile elegance.",
-      coverImage: "/assets/doors/aluk.png",
+      description: "AluK blends European minimalism with Indian craftsmanship, offering precision-engineered aluminum doors and windows that redefine luxury and longevity.",
+      coverImage: "/assets/doors/ALUK.png",
       href: "/collections/doors/aluk"
     }
   ];
