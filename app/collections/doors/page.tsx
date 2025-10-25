@@ -71,13 +71,10 @@ export default function DoorsCollection() {
                 >
                   {/* Background Image */}
                   <div className="relative w-full h-full min-h-[500px] bg-gray-200">
-                    <Image
+                    <img
                       src={brand.coverImage}
                       alt={`${brand.name} showcase`}
-                      fill
-                      sizes="(max-width: 768px) 100vw, 50vw"
-                      priority
-                      className="object-cover group-hover:scale-105 transition-transform duration-1000 ease-out"
+                      className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000 ease-out"
                       onError={(e) => {
                         console.error(`Failed to load image: ${brand.coverImage}`);
                         const target = e.target as HTMLImageElement;
