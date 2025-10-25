@@ -18,7 +18,7 @@ export default function DoorsCollection() {
       id: "aluk",
       name: "AluK Doors & Windows",
       description: "AluK blends European minimalism with Indian craftsmanship, offering precision-engineered aluminum doors and windows that redefine luxury and longevity.",
-      coverImage: "/assets/doors/ALUK.png",
+      coverImage: "/assets/doors/aluk.png",
       href: "/collections/doors/aluk"
     }
   ];
