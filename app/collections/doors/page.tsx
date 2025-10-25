@@ -70,12 +70,19 @@ export default function DoorsCollection() {
                   transition={{ duration: 0.3, ease: "easeOut" }}
                 >
                   {/* Background Image */}
-                  <div className="relative w-full h-full">
+                  <div className="relative w-full h-full min-h-[500px] bg-gray-200">
                     <Image
                       src={brand.coverImage}
                       alt={`${brand.name} showcase`}
                       fill
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                      priority
                       className="object-cover group-hover:scale-105 transition-transform duration-1000 ease-out"
+                      onError={(e) => {
+                        console.error(`Failed to load image: ${brand.coverImage}`);
+                        const target = e.target as HTMLImageElement;
+                        target.style.display = 'none';
+                      }}
                     />
                     
                     {/* Enhanced Gradient Overlay */}
