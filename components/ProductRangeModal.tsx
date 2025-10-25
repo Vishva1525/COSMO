@@ -113,6 +113,7 @@ function getMarbleProducts(subfolder: string): ProductCard[] {
   }
 
   const images = marbleImages[subfolder] || []
+  console.log(`Loading ${subfolder} images:`, images.slice(0, 3))
   return images.map((img, idx) => ({
     id: `marble-${subfolder}-${idx}`,
     name: extractCleanName(img),
@@ -378,6 +379,7 @@ export default function ProductRangeModal({ isOpen, onClose }: ProductRangeModal
                               loading="lazy"
                               onError={(e) => {
                                 console.error(`Failed to load image: ${product.image}`);
+                                console.error(`Full path: /public${product.image}`);
                                 const target = e.target as HTMLImageElement;
                                 target.style.display = 'none';
                               }}
