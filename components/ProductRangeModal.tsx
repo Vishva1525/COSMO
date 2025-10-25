@@ -50,14 +50,14 @@ function getMarbleProducts(subfolder: string): ProductCard[] {
       'freepik__crema-nova-polished-cream-marble-surface-realistic__71160.png'
     ],
     'greys': [
-      'freepik__arabescato-carrara-grey-marble-slab-with-elegant-v__71167.png',
-      'freepik__bianco-carrara-grey-marble-with-subtle-veining-pat__71168.png',
-      'freepik__calacatta-grey-marble-slab-with-dramatic-veins-ph__71169.png',
-      'freepik__grigio-carnico-grey-marble-with-fine-linear-veini__71170.png',
-      'freepik__grigio-perla-grey-marble-slab-with-cloudy-pattern__71171.png',
-      'freepik__pietra-grey-marble-with-natural-texture-and-veini__71172.png',
-      'freepik__silver-grey-marble-slab-with-metallic-shimmer-ph__71173.png',
-      'freepik__storm-grey-marble-with-dramatic-cloudy-patterns__71174.png'
+      'freepik__alaska-grey-polished-dark-grey-marble-with-subtle-__71174.png',
+      'freepik__arabian-grey-dark-grey-marble-slab-with-subtle-vei__71167.png',
+      'freepik__fior-de-pesco-soft-grey-marble-with-pinkish-tones-__71168.png',
+      'freepik__grey-amani-premium-grey-marble-slab-under-natural-__71169.png',
+      'freepik__grey-chigani-midtone-grey-marble-with-fine-streaks__71170.png',
+      'freepik__grey-marfil-pale-grey-marble-texture-soft-surface-__71173.png',
+      'freepik__olive-grey-warm-grey-marble-wall-texture-matte-pol__71171.png',
+      'freepik__silver-sarpeggiante-striped-grey-marble-with-horiz__71172.png'
     ],
     'whites': [
       'freepik__bianco-carrara-white-marble-slab-with-subtle-veini__71175.png',
@@ -84,26 +84,26 @@ function getMarbleProducts(subfolder: string): ProductCard[] {
       'freepik__yellow-pearl-golden-yellow-marble-slab-warm-daylig__88721.png'
     ],
     'onyx': [
-      'freepik__golden-onyx-marble-slab-with-translucent-gold-laye__71187.png',
-      'freepik__green-onyx-marble-with-emerald-swirls-and-patterns__71188.png',
-      'freepik__red-onyx-marble-slab-with-deep-crimson-veining-ph__71189.png',
-      'freepik__blue-onyx-marble-with-sapphire-tones-and-crystals__71190.png',
-      'freepik__white-onyx-marble-slab-translucent-pure-white-sur__71191.png',
-      'freepik__brown-onyx-marble-with-warm-chocolate-swirls-phot__71192.png',
-      'freepik__purple-onyx-marble-slab-with-amethyst-veining-pat__71193.png',
-      'freepik__pink-onyx-marble-with-rose-quartz-patterns-photore__71194.png',
-      'freepik__orange-onyx-marble-slab-with-citrine-crystals-pho__71195.png',
-      'freepik__black-onyx-marble-with-deep-ebony-veining-photore__71196.png'
+      'freepik__brown-crystal-onyx-dark-brown-onyx-with-crystallin__71196.png',
+      'freepik__dragon-onyx-translucent-ambertoned-onyx-backlit-wa__71187.png',
+      'freepik__green-onyx-emeraldtoned-onyx-backlit-surface-luxur__71193.png',
+      'freepik__honey-onyx-golden-onyx-glowing-softly-photoreal-st__71188.png',
+      'freepik__mango-onyx-amberorange-onyx-slab-under-warm-light-__71195.png',
+      'freepik__onice-bianco-translucent-white-onyx-with-golden-ve__71194.png',
+      'freepik__onix-fantastico-mixed-tone-onyx-pattern-artistic-d__71189.png',
+      'freepik__vanilla-wave-onyx-cream-onyx-with-wavy-veins-natur__71191.png',
+      'freepik__walnut-onyx-brownish-onyx-surface-subtle-veins-min__71190.png',
+      'freepik__white-tiger-onyx-white-onyx-slab-with-striking-gre__71192.png'
     ],
     'travertino': [
-      'freepik__classic-travertino-marble-slab-with-natural-holes__71197.png',
-      'freepik__silver-travertino-marble-with-metallic-shimmer-ph__71198.png',
-      'freepik__gold-travertino-marble-slab-with-warm-tones-photo__71199.png',
-      'freepik__noce-travertino-marble-with-brown-veining-pattern__71200.png',
-      'freepik__bianco-travertino-marble-slab-light-cream-surface__71201.png',
-      'freepik__navona-travertino-marble-with-classic-texture-pho__71202.png',
-      'freepik__romano-travertino-marble-slab-traditional-pattern__71203.png',
-      'freepik__tuscan-travertino-marble-with-rustic-texture-phot__71204.png'
+      'freepik__beige-travertino-beige-travertine-wall-linear-vein__88705.png',
+      'freepik__cork-travertino-earthy-beige-travertine-texture-ru__88706.png',
+      'freepik__lemon-yellow-travertino-warm-yellow-travertine-sla__88707.png',
+      'freepik__red-travertino-reddish-travertine-wall-under-archi__88708.png',
+      'freepik__silver-travertino-dorato-silvergrey-travertine-wal__88712.png',
+      'freepik__titanium-travertino-dark-grey-travertine-with-line__88709.png',
+      'freepik__travertino-classico-classic-beige-travertine-slab-__88710.png',
+      'freepik__walnut-travertino-brown-travertine-texture-closeup__88711.png'
     ],
     'indian-marble': [
       'freepik__indian-classic-white-soft-white-marble-smooth-surf__88715.png',
@@ -174,16 +174,16 @@ function getWoodProducts(subfolder: string): ProductCard[] {
       'freepik__engineered-sucupira-wood-flooring-rich-reddish-ton__6386.png'
     ],
     'solid hard wood': [
-      'freepik__solid-oak-hardwood-flooring-natural-grain-texture__6389.png',
-      'freepik__solid-teak-hardwood-floor-warm-golden-tones-photore__6390.png',
-      'freepik__solid-walnut-hardwood-floor-rich-brown-texture-pho__6391.png',
-      'freepik__solid-cherry-hardwood-flooring-reddish-hue-photore__6392.png',
-      'freepik__solid-maple-hardwood-floor-light-cream-texture-ph__6393.png',
-      'freepik__solid-mahogany-hardwood-floor-deep-red-tones-photo__6394.png',
-      'freepik__solid-ash-hardwood-flooring-natural-grain-pattern__6395.png',
-      'freepik__solid-hickory-hardwood-floor-rustic-texture-photore__6396.png',
-      'freepik__solid-birch-hardwood-flooring-light-tones-photore__6397.png',
-      'freepik__solid-pine-hardwood-floor-natural-knots-texture-ph__6398.png'
+      'freepik__natural-oak-hardwood-flooring-polished-reflective-__6389.png',
+      'freepik__solid-carameltone-hardwood-flooring-glossy-finish-__6397.png',
+      'freepik__solid-cumaru-hardwood-flooring-rich-brown-grain-lu__6394.png',
+      'freepik__solid-hardwood-floor-in-american-walnut-dark-polis__6396.png',
+      'freepik__solid-jatoba-hardwood-floor-reddish-hue-polished-r__6395.png',
+      'freepik__solid-marabu-hardwood-flooring-warm-reddishbrown-t__6390.png',
+      'freepik__solid-oak-floor-with-tigereye-pattern-realistic-te__6392.png',
+      'freepik__solid-oak-hardwood-floor-in-coffee-brown-tone-fine__6398.png',
+      'freepik__solid-smoked-black-oak-hardwood-floor-matte-finish__6393.png',
+      'freepik__solid-teak-hardwood-floor-stained-finish-natural-d__6391.png'
     ]
   }
 
