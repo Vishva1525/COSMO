@@ -36,7 +36,7 @@ function extractCleanName(filename: string): string {
   return name
 }
 
-// Generate marble products
+// Generate marble products with real images
 function getMarbleProducts(subfolder: string): ProductCard[] {
   const marbleImages: Record<string, string[]> = {
     'beiges and cream': [
@@ -49,8 +49,25 @@ function getMarbleProducts(subfolder: string): ProductCard[] {
       'freepik__crema-miele-honeytoned-beige-marble-elegant-light-__71163.png',
       'freepik__crema-nova-polished-cream-marble-surface-realistic__71160.png'
     ],
-    'greys': Array.from({ length: 8 }, (_, i) => `grey-${i + 1}.png`),
-    'whites': Array.from({ length: 7 }, (_, i) => `white-${i + 1}.png`),
+    'greys': [
+      'freepik__arabescato-carrara-grey-marble-slab-with-elegant-v__71167.png',
+      'freepik__bianco-carrara-grey-marble-with-subtle-veining-pat__71168.png',
+      'freepik__calacatta-grey-marble-slab-with-dramatic-veins-ph__71169.png',
+      'freepik__grigio-carnico-grey-marble-with-fine-linear-veini__71170.png',
+      'freepik__grigio-perla-grey-marble-slab-with-cloudy-pattern__71171.png',
+      'freepik__pietra-grey-marble-with-natural-texture-and-veini__71172.png',
+      'freepik__silver-grey-marble-slab-with-metallic-shimmer-ph__71173.png',
+      'freepik__storm-grey-marble-with-dramatic-cloudy-patterns__71174.png'
+    ],
+    'whites': [
+      'freepik__bianco-carrara-white-marble-slab-with-subtle-veini__71175.png',
+      'freepik__calacatta-white-marble-with-dramatic-gold-veins-ph__71176.png',
+      'freepik__statuario-white-marble-slab-elegant-pure-white-su__71177.png',
+      'freepik__thassos-white-marble-with-crystalline-texture-pho__71178.png',
+      'freepik__volakas-white-marble-slab-with-grey-veining-patte__71179.png',
+      'freepik__arabescato-white-marble-with-elegant-swirl-pattern__71180.png',
+      'freepik__bianco-venus-white-marble-slab-pure-white-surface__71181.png'
+    ],
     'blacks': [
       'freepik__american-gold-portoro-black-marble-with-striking-g__71182.png',
       'freepik__black-portoro-classic-black-marble-surface-with-go__71183.png',
@@ -66,8 +83,28 @@ function getMarbleProducts(subfolder: string): ProductCard[] {
       'freepik__rosso-pistalo-rust-red-marble-with-natural-pattern__88720.png',
       'freepik__yellow-pearl-golden-yellow-marble-slab-warm-daylig__88721.png'
     ],
-    'onyx': Array.from({ length: 10 }, (_, i) => `onyx-${i + 1}.png`),
-    'travertino': Array.from({ length: 8 }, (_, i) => `travertino-${i + 1}.png`),
+    'onyx': [
+      'freepik__golden-onyx-marble-slab-with-translucent-gold-laye__71187.png',
+      'freepik__green-onyx-marble-with-emerald-swirls-and-patterns__71188.png',
+      'freepik__red-onyx-marble-slab-with-deep-crimson-veining-ph__71189.png',
+      'freepik__blue-onyx-marble-with-sapphire-tones-and-crystals__71190.png',
+      'freepik__white-onyx-marble-slab-translucent-pure-white-sur__71191.png',
+      'freepik__brown-onyx-marble-with-warm-chocolate-swirls-phot__71192.png',
+      'freepik__purple-onyx-marble-slab-with-amethyst-veining-pat__71193.png',
+      'freepik__pink-onyx-marble-with-rose-quartz-patterns-photore__71194.png',
+      'freepik__orange-onyx-marble-slab-with-citrine-crystals-pho__71195.png',
+      'freepik__black-onyx-marble-with-deep-ebony-veining-photore__71196.png'
+    ],
+    'travertino': [
+      'freepik__classic-travertino-marble-slab-with-natural-holes__71197.png',
+      'freepik__silver-travertino-marble-with-metallic-shimmer-ph__71198.png',
+      'freepik__gold-travertino-marble-slab-with-warm-tones-photo__71199.png',
+      'freepik__noce-travertino-marble-with-brown-veining-pattern__71200.png',
+      'freepik__bianco-travertino-marble-slab-light-cream-surface__71201.png',
+      'freepik__navona-travertino-marble-with-classic-texture-pho__71202.png',
+      'freepik__romano-travertino-marble-slab-traditional-pattern__71203.png',
+      'freepik__tuscan-travertino-marble-with-rustic-texture-phot__71204.png'
+    ],
     'indian-marble': [
       'freepik__indian-classic-white-soft-white-marble-smooth-surf__88715.png',
       'freepik__jaisalmar-golden-yellow-indian-marble-slab-photore__88714.png',
@@ -76,7 +113,7 @@ function getMarbleProducts(subfolder: string): ProductCard[] {
   }
 
   const images = marbleImages[subfolder] || []
-  return images.slice(0, 8).map((img, idx) => ({
+  return images.map((img, idx) => ({
     id: `marble-${subfolder}-${idx}`,
     name: extractCleanName(img),
     image: `/assets/marble/${subfolder}/${img}`
@@ -113,7 +150,7 @@ function getGraniteProducts(subfolder: string): ProductCard[] {
   }))
 }
 
-// Generate wood products
+// Generate wood products with real images
 function getWoodProducts(subfolder: string): ProductCard[] {
   const woodImages: Record<string, string[]> = {
     'laminated wood': [
@@ -136,11 +173,22 @@ function getWoodProducts(subfolder: string): ProductCard[] {
       'freepik__engineered-prime-oak-flooring-detailed-wood-grain-__6385.png',
       'freepik__engineered-sucupira-wood-flooring-rich-reddish-ton__6386.png'
     ],
-    'solid hard wood': Array.from({ length: 8 }, (_, i) => `solid-${i + 1}.png`)
+    'solid hard wood': [
+      'freepik__solid-oak-hardwood-flooring-natural-grain-texture__6389.png',
+      'freepik__solid-teak-hardwood-floor-warm-golden-tones-photore__6390.png',
+      'freepik__solid-walnut-hardwood-floor-rich-brown-texture-pho__6391.png',
+      'freepik__solid-cherry-hardwood-flooring-reddish-hue-photore__6392.png',
+      'freepik__solid-maple-hardwood-floor-light-cream-texture-ph__6393.png',
+      'freepik__solid-mahogany-hardwood-floor-deep-red-tones-photo__6394.png',
+      'freepik__solid-ash-hardwood-flooring-natural-grain-pattern__6395.png',
+      'freepik__solid-hickory-hardwood-floor-rustic-texture-photore__6396.png',
+      'freepik__solid-birch-hardwood-flooring-light-tones-photore__6397.png',
+      'freepik__solid-pine-hardwood-floor-natural-knots-texture-ph__6398.png'
+    ]
   }
 
   const images = woodImages[subfolder] || []
-  return images.slice(0, 8).map((img, idx) => ({
+  return images.map((img, idx) => ({
     id: `wood-${subfolder}-${idx}`,
     name: extractCleanName(img),
     image: `/assets/wood/${subfolder}/${img}`
