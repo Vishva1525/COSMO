@@ -60,13 +60,13 @@ function getMarbleProducts(subfolder: string): ProductCard[] {
       'freepik__silver-sarpeggiante-striped-grey-marble-with-horiz__71172.png'
     ],
     'whites': [
-      'freepik__bianco-carrara-white-marble-slab-with-subtle-veini__71175.png',
-      'freepik__calacatta-white-marble-with-dramatic-gold-veins-ph__71176.png',
-      'freepik__statuario-white-marble-slab-elegant-pure-white-su__71177.png',
-      'freepik__thassos-white-marble-with-crystalline-texture-pho__71178.png',
-      'freepik__volakas-white-marble-slab-with-grey-veining-patte__71179.png',
-      'freepik__arabescato-white-marble-with-elegant-swirl-pattern__71180.png',
-      'freepik__bianco-venus-white-marble-slab-pure-white-surface__71181.png'
+      'freepik__ariston-white-minimalist-white-marble-surface-smoo__71181.png',
+      'freepik__calacatta-white-marble-with-bold-grey-veins-modern__71175.png',
+      'freepik__cosmic-white-offwhite-marble-slab-crystalline-patt__71179.png',
+      'freepik__golden-spider-white-marble-with-fine-gold-web-vein__71176.png',
+      'freepik__lhasa-bianco-pure-white-marble-with-light-silver-v__71180.png',
+      'freepik__marmara-white-white-marble-with-linear-parallel-st__71177.png',
+      'freepik__statuario-extra-luxury-white-marble-with-dramatic-__71178.png'
     ],
     'blacks': [
       'freepik__american-gold-portoro-black-marble-with-striking-g__71182.png',
